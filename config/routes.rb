@@ -1,11 +1,10 @@
 BnwTodos::Application.routes.draw do
   resources :users
 
-  resources :todos
-
-  resources :lists
-
-  resources :projects
+  resources :projects do
+    resources :todos
+    resources :lists
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

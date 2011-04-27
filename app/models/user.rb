@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   validates :password, :confirmation => true
 
+  has_many :todos, :foreign_key => "assignee_id"
+
   def password
     @password
   end
