@@ -1,8 +1,14 @@
 class Todo < ActiveRecord::Base
+  scope :due_today, lambda { where("due_date = ?", Date.today) }
+
   belongs_to :list
   has_one :assignee, :class_name => "User"
 
   validates_presence_of :task
+
+  def due_today?
+    self.due_date == Date.today
+  end
 end
 
 # == Schema Information
