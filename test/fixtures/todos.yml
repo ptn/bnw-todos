@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  task: MyString
+  due_date: 2011-04-26
+  assignee_id: 1
+  list_id: 1
+
+two:
+  task: MyString
+  due_date: 2011-04-26
+  assignee_id: 1
+  list_id: 1
