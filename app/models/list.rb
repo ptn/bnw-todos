@@ -1,6 +1,8 @@
 class List < ActiveRecord::Base
   belongs_to :project
   has_many :todos
+
+  validates_presence_of :title
 end
 
 # == Schema Information

@@ -3,6 +3,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   validates :password, :confirmation => true
+  validates_presence_of :username
 
   has_many :todos, :foreign_key => "assignee_id"
 

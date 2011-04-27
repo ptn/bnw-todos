@@ -1,6 +1,8 @@
 class Todo < ActiveRecord::Base
   belongs_to :list
   has_one :assignee, :class_name => "User"
+
+  validates_presence_of :task
 end
 
 # == Schema Information
