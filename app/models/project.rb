@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
   has_many :lists
+  has_many :participants
+  has_many :users, :through => :participants
 
   validates_presence_of :name
 end

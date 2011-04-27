@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   validates :password, :confirmation => true
   validates_presence_of :username
 
-  has_many :todos, :foreign_key => "assignee_id"
+  has_many :participants
+  has_many :projects, :through => :participants
 
   def password
     @password

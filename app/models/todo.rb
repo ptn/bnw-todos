@@ -2,7 +2,7 @@ class Todo < ActiveRecord::Base
   scope :due_today, lambda { where("due_date = ?", Date.today) }
 
   belongs_to :list
-  has_one :assignee, :class_name => "User"
+  has_one :assignee, :class_name => "Participant"
 
   validates_presence_of :task
 

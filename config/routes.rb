@@ -4,6 +4,7 @@ BnwTodos::Application.routes.draw do
   resources :projects do
     resources :todos
     resources :lists
+    resources :participants
   end
 
   # The priority is based upon order of creation:
