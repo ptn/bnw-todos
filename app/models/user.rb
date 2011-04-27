@@ -28,3 +28,15 @@ class User < ActiveRecord::Base
     self.salt = self.object_id.to_s + rand.to_s
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer         not null, primary key
+#  username        :string(255)
+#  hashed_password :string(255)
+#  salt            :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#

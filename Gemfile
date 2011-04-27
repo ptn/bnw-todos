@@ -19,6 +19,7 @@ gem 'haml-rails'
 # gem 'ruby-debug'
 group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'annotate'
 end
 
 # Bundle the extra gems:
