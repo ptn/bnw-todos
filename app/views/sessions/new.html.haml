@@ -1,0 +1,11 @@
+%fieldset
+  %legend Login
+  %p= flash[:error]
+  = form_tag do
+    %p
+      %label{:for => "username"} Username
+      = text_field_tag :username, params[:username]
+    %p
+      %label{:for => "password"} Password
+      = password_field_tag :password, params[:password]
+    = submit_tag "Login"
