@@ -6,7 +6,7 @@ class Todo < ActiveRecord::Base
   # scope :due_soon
 
   belongs_to :list
-  has_one :assignee, :class_name => "Participant"
+  belongs_to :assignee, :class_name => "Participant"
 
   validates_presence_of :task
 
