@@ -62,7 +62,25 @@ body {
 
 
 /***************************************************
- * Projects
+ * Todos
  ***************************************************/
 
+.todo .mine {
+  background-color #ffc:
+  font-weight: bold;
+}
 
+.todo .overdue {
+  font-weight: bold;
+  color: #111;
+  background-color: #ffa240;
+  line-height: 1.5em;
+  padding: 2px 4px;
+}
+
+.todo .due-today {
+  color: #111;
+  background-color: #fff273;
+  line-height: 1.5em;
+  padding: 2px 4px;
+}

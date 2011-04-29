@@ -1,6 +1,20 @@
 %li.todo
   - if todo.done?
     %input{:type => "checkbox", :checked => "1"}/
+    = todo.task
+    \-
+    = todo.assignee.username
   - else
     %input{:type => "checkbox"}/
-  = todo.task
+    = todo.task
+    %span.quiet
+      \-
+      - if todo.assignee.user == @current_user
+        %span.mine= todo.assignee.username
+      - else
+        = todo.assignee.username
+      = "(#{todo.due_date})"
+      - if todo.overdue?
+        %span.overdue OVERDUE
+      - elsif todo.due_today?
+        %span.due-today DUE TODAY
