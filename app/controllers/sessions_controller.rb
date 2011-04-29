@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_login, :only => [:new, :create]
+
   def new
     unless session[:current_user_id].nil?
       flash[:warn] = "You are already logged in"
