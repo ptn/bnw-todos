@@ -8,6 +8,11 @@ class User < ActiveRecord::Base
   has_many :participants
   has_many :projects, :through => :participants
 
+  def todos
+    ids = self.participants.map(&:id).join(", ")
+    Todo.where "id IN (#{ids})"
+  end
+
   def password
     @password
   end
