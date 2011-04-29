@@ -1,6 +1,9 @@
 class Todo < ActiveRecord::Base
   scope :due_today, lambda { where("due_date = ?", Date.today) }
   scope :overdue, lambda { where("due_date < ?", Date.today) }
+  scope :left, where(:done => false)
+  scope :done, where(:done => true)
+  # scope :due_soon
 
   belongs_to :list
   has_one :assignee, :class_name => "Participant"

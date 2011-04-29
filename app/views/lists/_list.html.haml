@@ -1,0 +1,14 @@
+.list
+  .title= list.title
+  .quiet.medium
+    = pluralize list.todos.left.count, "todo"
+    left -
+    = link_to "Add a todo", "#"
+  .left
+    %ul
+      = render list.todos.left
+  - if list.todos.done.count > 0
+    .done.small.quiet
+      Done:
+      %ul
+        = render list.todos.done

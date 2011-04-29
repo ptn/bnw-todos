@@ -1,0 +1,6 @@
+%li.todo
+  - if todo.done?
+    %input{:type => "checkbox", :checked => "1"}/
+  - else
+    %input{:type => "checkbox"}/
+  = todo.task

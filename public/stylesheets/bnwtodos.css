@@ -1,0 +1,68 @@
+body {
+  color: #333;
+}
+
+
+/**************************************************
+ * Utilities
+ **************************************************/
+
+.quiet a {
+  color: #666;
+}
+
+.alt {
+  font-style: italic;
+}
+
+
+/***************************************************
+ * Lists
+ ***************************************************/
+
+#lists {
+  margin-top: 30px;
+}
+
+.list {
+  margin-bottom: 3.5em;
+}
+
+.list .title {
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 0.3em;
+  color: #111;
+  font-weight: bold;
+}
+
+.list ul {
+  list-style-type: none;
+}
+
+.list .left ul {
+  margin: 0.8em 1.5em 1.5em 0.5em;
+}
+
+.list .done ul {
+  margin: 0.4em 1.5em 1.5em 0.5em;
+}
+
+.list ul li {
+  line-height: 2.5em;
+}
+
+.list .left {
+  padding-left: 0.5em;
+}
+
+.list .done {
+  padding-left: 0.8em;
+}
+
+
+/***************************************************
+ * Projects
+ ***************************************************/
+
+
