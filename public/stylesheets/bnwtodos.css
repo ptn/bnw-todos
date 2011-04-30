@@ -99,19 +99,19 @@ body {
   font-weight: bold;
 }
 
-.todo .overdue {
-  font-weight: bold;
-  color: #111;
-  background-color: #ffa240;
+.todo .overdue, .todo .due-today {
   line-height: 1.5em;
-  padding: 2px 4px;
+  padding: 1px 4px;
+  color: #111;
+}
+
+.todo .overdue {
+  background-color: #ffa240;
+  font-weight: bold;
 }
 
 .todo .due-today {
-  color: #111;
   background-color: #fff273;
-  line-height: 1.5em;
-  padding: 2px 4px;
 }
 
 
