@@ -1,5 +1,7 @@
-%h1= @project.name
-.alt= @project.description
+%span.quiet.small Todos for
+%br/
+%span.project-title= @project.name
+%span.alt= @project.description
 
 #lists
   = render @project.lists
