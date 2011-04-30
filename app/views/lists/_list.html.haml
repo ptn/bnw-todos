@@ -1,5 +1,5 @@
 .list
-  %span.title= list.title
+  %span.list-title= list.title
   %span.list-utils.quiet.medium
     = pluralize list.todos.left.count, "todo"
     left -
@@ -9,6 +9,6 @@
       = render list.todos.left
   - if list.todos.done.count > 0
     .done.small.quiet
-      Done:
+      = "Done (#{list.todos.done.count}) :"
       %ul
         = render list.todos.done

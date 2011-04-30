@@ -16,6 +16,10 @@ body {
   color: #666;
 }
 
+.alt {
+  font-style: italic;
+}
+
 
 /***************************************************
  * Sections
@@ -49,7 +53,7 @@ body {
   margin-bottom: 3.5em;
 }
 
-.list .title {
+.list .list-title {
   font-size: 1.5em;
   line-height: 1em;
   margin-bottom: 0.3em;
@@ -108,4 +112,15 @@ body {
   background-color: #fff273;
   line-height: 1.5em;
   padding: 2px 4px;
+}
+
+
+/***************************************************
+ * Projects
+ ***************************************************/
+
+.project-title {
+  font-size: 3em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
 }
