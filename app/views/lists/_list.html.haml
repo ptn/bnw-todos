@@ -1,5 +1,5 @@
 .list{ :id => "list-#{list.id}" }
-  %span.list-title= list.title
+  = link_to list.title, [@project, list], :class => "list-title"
   %span.list-utils.quiet.medium
     %span.left-count= "#{pluralize list.todos.left.count, 'todo'} left"
     \-
