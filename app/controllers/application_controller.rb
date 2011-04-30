@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless session[:current_user_id]
+    unless current_user
       flash[:error] = "Please login first"
       redirect_to :controller => :sessions, :action => :new
     end
