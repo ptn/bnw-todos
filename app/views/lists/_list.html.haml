@@ -1,6 +1,6 @@
 .list
-  .title= list.title
-  .quiet.medium
+  %span.title= list.title
+  %span.list-utils.quiet.medium
     = pluralize list.todos.left.count, "todo"
     left -
     = link_to "Add a todo", "#"

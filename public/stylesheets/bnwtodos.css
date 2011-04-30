@@ -1,5 +1,10 @@
+/***************************************************
+ * Visuals
+ ***************************************************/
+
 body {
   color: #333;
+  background-color: #e6e6e6;
 }
 
 
@@ -11,10 +16,26 @@ body {
   color: #666;
 }
 
-.alt {
-  font-style: italic;
+
+/***************************************************
+ * Sections
+ ***************************************************/
+
+#sidebar {
 }
 
+#content {
+  background-color: white;
+  padding: 0.5em;
+}
+
+#header {
+  background-color: white;
+}
+
+#footer {
+  background-color: white;
+}
 
 /***************************************************
  * Lists
@@ -58,6 +79,10 @@ body {
 
 .list .done {
   padding-left: 0.8em;
+}
+
+.list-utils {
+  float: right;
 }
 
 
