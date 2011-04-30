@@ -1,4 +1,7 @@
 class List < ActiveRecord::Base
+  scope :done, where(:done => true)
+  scope :left, where(:done => false)
+
   belongs_to :project
   has_many :todos
 
