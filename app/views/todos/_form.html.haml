@@ -1,0 +1,5 @@
+= form_for [@project, @new_todo], :remote => :true do |f|
+  .field
+    = f.label :task, "What needs to be done?"
+    %br/
+    = f.text_field :task

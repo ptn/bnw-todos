@@ -3,7 +3,9 @@
   %span.list-utils.quiet.medium
     %span.left-count= "#{pluralize list.todos.left.count, 'todo'} left"
     \-
-    %span.add-todo= link_to "Add a todo", "#"
+    %a.add-todo{ :href => "#"} Add a todo
+  .new-todo-form{ :style => "display: none;" }
+    = render "todos/form"
   .left
     %ul
       = render list.todos.left

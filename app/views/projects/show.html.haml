@@ -6,13 +6,20 @@
 #lists
   :javascript
     $(function() {
-      $(".list .toggle-done").click(function(evt) {
-        var ul = $(this).next("ul");
-        ul.toggle();
-        if (ul.css("display") == "none")
-          $(this).text("Show");
+      var toggleSection = function(link, target, show_text, hide_text) {
+        target.toggle();
+        if (target.css("display") == "none")
+          $(link).text(show_text);
         else
-          $(this).text("Hide");
+          $(link).text(hide_text);
+      };
+
+      $(".list .toggle-done").click(function() {
+        toggleSection(this, $(this).next("ul"), "Show", "Hide");
+      });
+
+      $(".list .add-todo").click(function() {
+        toggleSection(this, $(this).parent().next(".new-todo-form"), "Add a todo", "Cancel");
       });
     });
 
