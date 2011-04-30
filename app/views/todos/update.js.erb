@@ -1,0 +1,5 @@
+$("#todo-<%= @todo.id %>").remove();
+var target = "#list-<%= @todo.list.id %> > <%= @todo.done? ? ".done" : ".left" %> > ul";
+$(target).append("<%= escape_javascript(render @todo) %>");
+$(target + " li").last().effect("highlight", {}, 1500);
+$("#list-<%= @todo.list.id %> > .list-utils > .left-count").text("<%= pluralize @todo.list.todos.left.count, 'todo' %> left");

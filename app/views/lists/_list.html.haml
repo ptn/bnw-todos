@@ -1,9 +1,9 @@
-.list
+.list{ :id => "list-#{list.id}" }
   %span.list-title= list.title
   %span.list-utils.quiet.medium
-    = pluralize list.todos.left.count, "todo"
-    left -
-    = link_to "Add a todo", "#"
+    %span.left-count= "#{pluralize list.todos.left.count, 'todo'} left"
+    \-
+    %span.add-todo= link_to "Add a todo", "#"
   .left
     %ul
       = render list.todos.left

@@ -1,20 +1,20 @@
-%li.todo
+%li.todo{ :id => "todo-#{todo.id}" }
   - if todo.done?
-    %input{:type => "checkbox", :checked => "1"}/
-    = todo.task
-    \-
-    = todo.assignee.username
+    = form_for [@project, todo], :remote => true do |f|
+      = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
+      = "#{todo.task} - #{todo.assignee.username}"
   - else
-    %input{:type => "checkbox"}/
-    = todo.task
-    %span.quiet
-      \-
-      - if todo.assignee.user == @current_user
-        %span.mine= todo.assignee.username
-      - else
-        = todo.assignee.username
-      = "(#{todo.due_date})"
-      - if todo.overdue?
-        %span.overdue OVERDUE
-      - elsif todo.due_today?
-        %span.due-today DUE TODAY
+    = form_for [@project, todo], :remote => true do |f|
+      = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
+      = todo.task
+      %span.quiet
+        \-
+        - if todo.assignee.user == @current_user
+          %span.mine= todo.assignee.username
+        - else
+          = todo.assignee.username
+        = "(#{todo.due_date})"
+        - if todo.overdue?
+          %span.overdue OVERDUE
+        - elsif todo.due_today?
+          %span.due-today DUE TODAY
