@@ -4,6 +4,18 @@
 %span.alt= @project.description
 
 #lists
+  :javascript
+    $(function() {
+      $(".list .toggle-done").click(function(evt) {
+        var ul = $(this).next("ul");
+        ul.toggle();
+        if (ul.css("display") == "none")
+          $(this).text("Show");
+        else
+          $(this).text("Hide");
+      });
+    });
+
   = render @project.lists.left
 
 = content_for :sidebar do

@@ -9,5 +9,6 @@
       = render list.todos.left
   .done.small.quiet{ :style => list.todos.done.count == 0 ? "display: none;" : "" }
     %span.done-count= "Done (#{list.todos.done.count}) :"
-    %ul
+    %a.toggle-done{ :href => "#" } Show
+    %ul{ :style => "display: none;" }
       = render list.todos.done
