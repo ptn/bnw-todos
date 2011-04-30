@@ -7,8 +7,7 @@
   .left
     %ul
       = render list.todos.left
-  - if list.todos.done.count > 0
-    .done.small.quiet
-      = "Done (#{list.todos.done.count}) :"
-      %ul
-        = render list.todos.done
+  .done.small.quiet{ :style => list.todos.done.count == 0 ? "display: none;" : "" }
+    %span.done-count= "Done (#{list.todos.done.count}) :"
+    %ul
+      = render list.todos.done

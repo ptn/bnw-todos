@@ -10,6 +10,8 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
+        @left_count = @todo.list.todos.left.count
+        @done_count = @todo.list.todos.done.count
         @project = @todo.project
         format.js
       end
