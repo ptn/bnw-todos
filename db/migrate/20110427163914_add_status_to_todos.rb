@@ -1,6 +1,6 @@
 class AddStatusToTodos < ActiveRecord::Migration
   def self.up
-    add_column :todos, :done, :boolean, :default => 0
+    add_column :todos, :done, :boolean, :default => false
   end
 
   def self.down
