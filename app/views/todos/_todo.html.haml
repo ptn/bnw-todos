@@ -1,10 +1,12 @@
 %li.todo{ :id => "todo-#{todo.id}" }
+  %span.todo-controls
+    = link_to image_tag("delete.png"), [@project, todo], :method => :delete, :remote => :true, :confirm => "Are you sure you want to delete this todo?"
   - if todo.done?
-    = form_for [@project, todo], :remote => true do |f|
+    = form_for [@project, todo], :remote => true, :html => { :style => "display: inline;" } do |f|
       = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
       = "#{todo.task} - #{todo.assignee.username}"
   - else
-    = form_for [@project, todo], :remote => true do |f|
+    = form_for [@project, todo], :remote => true, :html => { :style => "display: inline;" } do |f|
       = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
       = todo.task
       %span.quiet

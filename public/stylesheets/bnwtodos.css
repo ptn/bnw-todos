@@ -123,6 +123,22 @@ body {
   padding-left: 1.2em;
 }
 
+.todo-controls {
+  display: none;
+}
+
+.todo-controls a {
+  cursor: pointer;
+  padding: 4px;
+}
+
+.todo:hover .todo-controls {
+  display: inline;
+  position: absolute;
+  margin-left: -2em;
+  padding-right: 1em;
+}
+
 
 /***************************************************
  * Projects

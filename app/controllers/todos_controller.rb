@@ -33,6 +33,13 @@ class TodosController < ApplicationController
     end
   end
 
+  def destroy
+    @todo = Todo.find(params[:id])
+    @todo.destroy
+    @left_count = @todo.list.todos.left.count
+    @done_count = @todo.list.todos.done.count
+  end
+
 
   private
 

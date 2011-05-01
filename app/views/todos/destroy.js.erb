@@ -1,0 +1,5 @@
+var todo = $("#todo-<%= @todo.id %>");
+var list = $("#list-<%= @todo.list.id %>");
+todo.slideUp("fast", function() { todo.remove() });
+$(".list-utils > .left-count", list).text("<%= pluralize @left_count, 'todo' %> left");
+$(".done > .done-count", list).text("Done (<%= @done_count %>) :");
