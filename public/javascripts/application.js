@@ -56,6 +56,7 @@ $(function() {
     var todo = $(this).parents(".todo");
     toggle_form.hide();
     edit_form.show();
+    $(":text", edit_form).focus();
     todo.addClass("editing");
     $(" > .todo-controls-left", todo).hide();
     $(" > .todo-controls-done", todo).hide();
