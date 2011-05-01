@@ -1,5 +1,23 @@
-= form_for [@project, @new_todo], :remote => :true do |f|
+= form_for [@project, @todo], :remote => :true do |f|
+  -if @todo.errors.any?
+    #error_explanation
+      %h2= "Freeze! There are #{pluralize(@todo.errors.count, "error")}:"
+      %ul
+        - @todo.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :list_id, :value => list_id
   .field
     = f.label :task, "What needs to be done?"
     %br/
     = f.text_field :task
+  .field
+    = label_tag :user_id, "Who is responsible?"
+    %br/
+    = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :selected => @selected_user
+  .field
+    = f.label :due_date, "When is it due?"
+    %br/
+    = f.date_select :due_date
+  .actions
+    = f.submit "Save"

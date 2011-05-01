@@ -17,4 +17,31 @@ class TodosController < ApplicationController
       end
     end
   end
+
+  def create
+    @todo = Todo.new(params[:todo])
+    @todo.assignee = find_or_create_participant(params[:project_id], params[:user_id])
+
+    respond_to do |format|
+      if @todo.save
+        @project = @todo.project
+        @left_count = @todo.list.todos.left.count
+        format.js
+      else
+        logger.debug "Errors: #{@todo.errors}" ##############################
+      end
+    end
+  end
+
+
+  private
+
+  #FIXME 404/fail if either the project or user don't exist.
+  def find_or_create_participant(project_id, user_id)
+    participant = Participant.where(:project_id => project_id, :user_id => user_id).first
+    if participant.nil?
+      participant = Participant.create(:project_id => project_id, :user_id => user_id)
+    end
+    participant
+  end
 end

@@ -1,0 +1,6 @@
+var list = "#list-<%= @todo.list.id %>";
+$(list + " .new-todo-form").hide();
+$(list + " .add-todo").text("Add a todo");
+$(list + " .left > ul").prepend("<%= escape_javascript(render :partial => @todo, :locals => { :todo => @todo }) %>");
+$(list + " .left-count").text("<%= pluralize @left_count, 'todo' %> left");
+$(list + " .left > ul li").first().effect("highlight", {}, 1500);

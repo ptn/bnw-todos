@@ -14,7 +14,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.xml
   def show
     @project = Project.find(params[:id])
-    @new_todo = Todo.new
+    @todo = Todo.new
+    @potential_assignees = User.all
 
     respond_to do |format|
       format.html # show.html.erb
