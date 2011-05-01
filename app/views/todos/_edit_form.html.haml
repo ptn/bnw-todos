@@ -1,0 +1,11 @@
+= form_for [@project, todo], :remote => :true, :html => { :class => "edit-todo-form" } do |f|
+  = f.text_field :task
+  \-
+  = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username, todo.user.id), :include_blank => "Anyone"
+  (
+  = f.date_select :due_date
+  )
+  %span.actions
+    = f.submit "Save"
+  or
+  %a.cancel-edit-todo{ :href => "#" } Cancel

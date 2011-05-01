@@ -49,4 +49,17 @@ $(function() {
     // Refactor: this JS function knows too much about the DOM structure, should decouple.
     form_div.prev(".list-utils").children(".toggle-add").text("Add a todo");
   });
+
+  $(".start-edit-todo").click(function() {
+    var edit_form = $(".edit-todo-form", $(this).parents(".todo"));
+    var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+    toggle_form.hide();
+    edit_form.show();
+  });
+
+  $(".cancel-edit-todo").click(function() {
+    $(this).parent().hide();
+    var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+    toggle_form.show();
+  });
 });

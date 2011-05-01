@@ -8,9 +8,9 @@
   - else
     %span.todo-controls-left
       = link_to image_tag("delete.png"), [@project, todo], :method => :delete, :remote => :true, :confirm => "Are you sure you want to delete this todo?"
-      = link_to "Edit", "#"
+      = link_to "Edit", "#", :class => "start-edit-todo"
       = link_to image_tag("drag.png"), "#"
-    = form_for [@project, todo], :remote => true, :html => { :style => "display: inline;" } do |f|
+    = form_for [@project, todo], :remote => true, :html => { :class => "toggle-todo-form" } do |f|
       = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
       = todo.task
       %span.quiet
@@ -24,3 +24,4 @@
           %span.overdue OVERDUE
         - elsif todo.due_today?
           %span.due-today DUE TODAY
+    = render :partial => "todos/edit_form", :locals => { :todo => todo }

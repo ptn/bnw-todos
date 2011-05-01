@@ -118,10 +118,29 @@ body {
   margin-left: 0.5em;
 }
 
+
+/***************************************************
+ * Todo forms
+ ***************************************************/
+
 .new-todo-form {
   margin-top: 1em;
   padding-left: 1.2em;
 }
+
+.edit-todo-form {
+  display: none;
+  margin-left: 0.5em;
+}
+
+.toggle-todo-form {
+  display: inline;
+}
+
+
+/***************************************************
+ * Hover controls for todos
+ ***************************************************/
 
 .todo-controls-done, .todo-controls-left {
   display: none;

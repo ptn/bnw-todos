@@ -7,7 +7,7 @@
   .field
     = label_tag :user_id, "Who is responsible?"
     %br/
-    = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :selected => @selected_user, :include_blank => "Anyone"
+    = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
   .field
     = f.label :due_date, "When is it due?"
     %br/

@@ -5,7 +5,7 @@
     \-
     %a.toggle-add{ :href => "#"} Add a todo
   .new-todo-form{ :style => "display: none;" }
-    = render :partial => "todos/form", :locals => { :list_id => list.id }
+    = render :partial => "todos/new_form", :locals => { :list_id => list.id }
   .left
     %ul
       = render list.todos.left
