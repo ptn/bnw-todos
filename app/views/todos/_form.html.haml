@@ -12,5 +12,7 @@
     = f.label :due_date, "When is it due?"
     %br/
     = f.date_select :due_date
-  .actions
+  %span.actions
     = f.submit "Add todo", :disabled => true
+  or
+  %a.cancel-add-todo{ :href => "#" } Cancel
