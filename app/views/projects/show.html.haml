@@ -18,8 +18,20 @@
         toggleSection(this, $(this).next("ul"), "Show", "Hide");
       });
 
+      $(".new-todo-form .field :text").keyup(function() {
+        var submit_btn = $(":submit", $(this.form));
+        if ($(this).val() == "")
+          submit_btn.attr("disabled", "1");
+        else
+          submit_btn.removeAttr("disabled");
+      });
+
       $(".list .add-todo").click(function() {
-        toggleSection(this, $(this).parent().next(".new-todo-form"), "Add a todo", "Cancel");
+        var form_div = $(this).parent().next(".new-todo-form");
+        toggleSection(this, form_div, "Add a todo", "Cancel");
+        var task_field = $(".field :text", form_div);
+        var submit_btn = $(":submit", form_div);
+        task_field.focus();
       });
     });
 

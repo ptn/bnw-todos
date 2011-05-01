@@ -1,11 +1,4 @@
 = form_for [@project, @todo], :remote => :true do |f|
-  -if @todo.errors.any?
-    #error_explanation
-      %h2= "Freeze! There are #{pluralize(@todo.errors.count, "error")}:"
-      %ul
-        - @todo.errors.full_messages.each do |msg|
-          %li= msg
-
   = f.hidden_field :list_id, :value => list_id
   .field
     = f.label :task, "What needs to be done?"
@@ -20,4 +13,4 @@
     %br/
     = f.date_select :due_date
   .actions
-    = f.submit "Save"
+    = f.submit "Add todo", :disabled => true
