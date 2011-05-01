@@ -20,7 +20,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(params[:todo])
-    @todo.assignee = find_or_create_participant(params[:project_id], params[:user_id])
+    @todo.assignee = find_or_create_participant(params[:project_id], params[:user_id]) if params[:user_id]
 
     respond_to do |format|
       if @todo.save
