@@ -53,13 +53,31 @@ $(function() {
   $(".start-edit-todo").click(function() {
     var edit_form = $(".edit-todo-form", $(this).parents(".todo"));
     var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+    var todo = $(this).parents(".todo");
     toggle_form.hide();
     edit_form.show();
+    todo.addClass("editing");
+    $(" > .todo-controls-left", todo).hide();
+    $(" > .todo-controls-done", todo).hide();
   });
 
   $(".cancel-edit-todo").click(function() {
     $(this).parent().hide();
     var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+    var todo = $(this).parents(".todo");
     toggle_form.show();
+    todo.removeClass("editing");
+  });
+
+
+  // Hover controls
+  $(".todo").hover(function() {
+    if (!$(this).hasClass("editing")) {
+      $(" > .todo-controls-left", $(this)).show();
+      $(" > .todo-controls-done", $(this)).show();
+    }
+  }, function() {
+    $(" > .todo-controls-left", $(this)).hide();
+    $(" > .todo-controls-done", $(this)).hide();
   });
 });

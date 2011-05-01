@@ -145,6 +145,8 @@ body {
 .todo-controls-done, .todo-controls-left {
   display: none;
   background-color: white;
+  position: absolute;
+  padding-right: 1em;
 }
 
 .todo-controls-done a, .todo-controls-left a {
@@ -152,17 +154,11 @@ body {
   padding: 4px;
 }
 
-.todo:hover .todo-controls-left, .todo:hover .todo-controls-done {
-  display: inline;
-  position: absolute;
-  padding-right: 1em;
-}
-
-.todo:hover .todo-controls-left {
+.todo-controls-left {
   margin-left: -7em;
 }
 
-.todo:hover .todo-controls-done {
+.todo-controls-done {
   margin-left: -2em;
 }
 
