@@ -1,6 +1,18 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(function() {
+  var clearNewTodoForm = function(form) {
+    $(":input", form).each(function() {
+      if (this.type != "hidden" && this.type != "submit") {
+        $(this).val('');
+        if (this.type == "select-one") {
+          var def = $("[selected='selected']", $(this)).val();
+          $(this).val(def);
+        }
+      }
+    });
+  };
+
   var toggleSection = function(link, target, show_text, hide_text) {
     target.toggle();
     if (target.css("display") == "none")
@@ -27,11 +39,13 @@ $(function() {
     toggleSection(this, form_div, "Add a todo", "Cancel");
     var task_field = $(".field :text", form_div);
     task_field.focus();
+    clearNewTodoForm($("> form", form_div));
   });
 
   $(".list .cancel-add-todo").click(function() {
     var form_div = $(this).parents(".new-todo-form");
     form_div.hide();
+    clearNewTodoForm($(" > form", form_div));
     // Refactor: this JS function knows too much about the DOM structure, should decouple.
     form_div.prev(".list-utils").children(".toggle-add").text("Add a todo");
   });
