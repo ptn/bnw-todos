@@ -123,22 +123,29 @@ body {
   padding-left: 1.2em;
 }
 
-.todo-controls {
+.todo-controls-done, .todo-controls-left {
   display: none;
+  background-color: white;
 }
 
-.todo-controls a {
+.todo-controls-done a, .todo-controls-left a {
   cursor: pointer;
   padding: 4px;
 }
 
-.todo:hover .todo-controls {
+.todo:hover .todo-controls-left, .todo:hover .todo-controls-done {
   display: inline;
   position: absolute;
-  margin-left: -2em;
   padding-right: 1em;
 }
 
+.todo:hover .todo-controls-left {
+  margin-left: -7em;
+}
+
+.todo:hover .todo-controls-done {
+  margin-left: -2em;
+}
 
 /***************************************************
  * Projects
