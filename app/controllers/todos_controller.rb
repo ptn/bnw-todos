@@ -13,6 +13,7 @@ class TodosController < ApplicationController
         @left_count = @todo.list.todos.left.count
         @done_count = @todo.list.todos.done.count
         @project = @todo.project
+        @potential_assignees = User.all
         format.js
       end
     end
@@ -20,11 +21,12 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(params[:todo])
-    @todo.assignee = find_or_create_participant(params[:project_id], params[:user_id]) if params[:user_id]
+    @todo.assignee = find_or_create_participant(params[:project_id], params[:user_id]) if params[:user_id] != ""
 
     respond_to do |format|
       if @todo.save
         @project = @todo.project
+        @potential_assignees = User.all
         @left_count = @todo.list.todos.left.count
         format.js
       else

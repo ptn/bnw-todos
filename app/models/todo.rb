@@ -8,7 +8,7 @@ class Todo < ActiveRecord::Base
   belongs_to :list
   delegate :project, :to => :list
   belongs_to :assignee, :class_name => "Participant"
-  delegate :user, :to => :assignee
+  delegate :user, :to => :assignee, :allow_nil => true
 
   validates_presence_of :task
 
