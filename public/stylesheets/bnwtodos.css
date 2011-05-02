@@ -26,6 +26,7 @@ body {
  ***************************************************/
 
 #sidebar {
+  margin-top: 6.5em;
 }
 
 #content {
@@ -46,7 +47,7 @@ body {
  ***************************************************/
 
 #lists {
-  margin-top: 3.5em;
+  margin-top: 3em;
 }
 
 .list {
@@ -87,6 +88,11 @@ body {
 
 .list-utils {
   float: right;
+}
+
+#new-list-form {
+  margin-top: 2em;
+  display: none;
 }
 
 
@@ -172,4 +178,18 @@ body {
   line-height: 1em;
   margin-bottom: 0.5em;
   margin-right: 0.3em;
+}
+
+
+/***************************************************
+ * Buttons
+ ***************************************************/
+
+#create-list-btn {
+  border: solid 1px black;
+  cursor: pointer;
+  padding: 0.3em;
+  text-align: center;
+  width: 50%;
+  background-color: cyan;
 }

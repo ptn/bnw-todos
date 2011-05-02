@@ -81,4 +81,18 @@ $(function() {
     $(" > .todo-controls-left", $(this)).hide();
     $(" > .todo-controls-done", $(this)).hide();
   });
+
+
+  // New list form
+  $("#create-list-btn").click(function() {
+    $("#new-list-form").show();
+    $("#new-list-form :text").focus();
+    $(this).hide();
+  });
+
+  $(".cancel-create-list").click(function() {
+    $("#new-list-form :text").val('');
+    $("#new-list-form").hide();
+    $("#create-list-btn").show();
+  });
 });

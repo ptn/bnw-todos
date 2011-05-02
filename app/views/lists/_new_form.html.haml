@@ -1,0 +1,9 @@
+= form_for [@project, @list], :remote => :true do |f|
+  .field
+    = f.label :title, "What's the name of the new list?"
+    %br/
+    = f.text_field :title
+  %span.actions
+    = f.submit "Create list", :disabled => true
+  or
+  %a.cancel-create-list{ :href => "#" } Cancel

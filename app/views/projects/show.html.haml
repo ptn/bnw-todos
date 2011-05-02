@@ -3,8 +3,11 @@
 %span.project-title= @project.name
 %span.alt= @project.description
 
+#new-list-form= render "lists/new_form"
+
 #lists
   = render @project.lists.left
 
 = content_for :sidebar do
-  TEST
+  #create-list-btn
+    Create a new list

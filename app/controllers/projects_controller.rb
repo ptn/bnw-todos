@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @todo = Todo.new
+    @list = List.new
     @potential_assignees = User.all
 
     respond_to do |format|
