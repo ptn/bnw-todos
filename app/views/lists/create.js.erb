@@ -1,0 +1,4 @@
+$("#new-list-form").hide();
+$("#lists").prepend("<%= escape_javascript(render @list) %>");
+$("#create-list-btn").show();
+$("#lists .list").first().effect("highlight", {}, 1500);

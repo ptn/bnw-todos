@@ -21,16 +21,20 @@ $(function() {
       $(link).text(hide_text);
   };
 
+  var toggleSubmitBtn = function(ctrl) {
+    var submit_btn = $(":submit", $(ctrl.form));
+    if ($(ctrl).val() == "")
+      submit_btn.attr("disabled", "1");
+    else
+      submit_btn.removeAttr("disabled");
+  }
+
   $(".list .toggle-done").click(function() {
     toggleSection(this, $(this).next("ul"), "Show", "Hide");
   });
 
   $(".new-todo-form .field :text").keyup(function() {
-    var submit_btn = $(":submit", $(this.form));
-    if ($(this).val() == "")
-      submit_btn.attr("disabled", "1");
-    else
-      submit_btn.removeAttr("disabled");
+    toggleSubmitBtn(this);
   });
 
   $(".list .toggle-add").click(function() {
@@ -94,5 +98,9 @@ $(function() {
     $("#new-list-form :text").val('');
     $("#new-list-form").hide();
     $("#create-list-btn").show();
+  });
+
+  $("#new-list-form :text").keyup(function() {
+    toggleSubmitBtn(this);
   });
 });
