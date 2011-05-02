@@ -1,4 +1,5 @@
-= form_for [@project, todo], :remote => :true, :html => { :class => "edit-todo-form" } do |f|
+= form_for [@project, todo], :remote => :true, :html => { :class => "edit-todo-form form" } do |f|
+  %h3 Edit todo
   = f.text_field :task
   \-
   - if todo.assignee

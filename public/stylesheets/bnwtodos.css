@@ -33,6 +33,11 @@ body {
   font-style: italic;
 }
 
+.form {
+  background-color: #f3f3f3;
+  padding: 0.5em;
+}
+
 
 /***************************************************
  * Sections
