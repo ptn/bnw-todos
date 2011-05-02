@@ -29,6 +29,7 @@ $(function() {
     });
   };
 
+
   window.bindList = function(list) {
     $(".toggle-done", list).click(function() {
       toggleSection(this, $(this).next("ul"), "Show", "Hide");
@@ -53,42 +54,42 @@ $(function() {
     });
   };
 
-  $(".list").each(function(list) { bindList(list); });
+  $(".list").each(function(idx, list) { bindList($(list)); });
+
 
   window.bindTodo = function(todo) {
+    todo.hover(function() {
+      if (!$(this).hasClass("editing")) {
+        $(" > .todo-controls-left", $(this)).show();
+        $(" > .todo-controls-done", $(this)).show();
+      }
+    }, function() {
+      $(" > .todo-controls-left", $(this)).hide();
+      $(" > .todo-controls-done", $(this)).hide();
+    });
+
+    $(".start-edit-todo", todo).click(function() {
+      var edit_form = $(".edit-todo-form", $(this).parents(".todo"));
+      var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+      var todo = $(this).parents(".todo");
+      toggle_form.hide();
+      edit_form.show();
+      $(":text", edit_form).focus();
+      todo.addClass("editing");
+      $(" > .todo-controls-left", todo).hide();
+      $(" > .todo-controls-done", todo).hide();
+    });
+
+    $(".cancel-edit-todo", todo).click(function() {
+      $(this).parent().hide();
+      var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+      var todo = $(this).parents(".todo");
+      toggle_form.show();
+      todo.removeClass("editing");
+    });
   };
 
-  $(".start-edit-todo").click(function() {
-    var edit_form = $(".edit-todo-form", $(this).parents(".todo"));
-    var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
-    var todo = $(this).parents(".todo");
-    toggle_form.hide();
-    edit_form.show();
-    $(":text", edit_form).focus();
-    todo.addClass("editing");
-    $(" > .todo-controls-left", todo).hide();
-    $(" > .todo-controls-done", todo).hide();
-  });
-
-  $(".cancel-edit-todo").click(function() {
-    $(this).parent().hide();
-    var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
-    var todo = $(this).parents(".todo");
-    toggle_form.show();
-    todo.removeClass("editing");
-  });
-
-
-  // Hover controls
-  $(".todo").hover(function() {
-    if (!$(this).hasClass("editing")) {
-      $(" > .todo-controls-left", $(this)).show();
-      $(" > .todo-controls-done", $(this)).show();
-    }
-  }, function() {
-    $(" > .todo-controls-left", $(this)).hide();
-    $(" > .todo-controls-done", $(this)).hide();
-  });
+  $(".todo").each(function(idx, todo) { bindTodo($(todo)); });
 
 
   // New list form

@@ -3,3 +3,4 @@ clearNewTodoForm($(list + " .new-todo-form"));
 $(list + " .left > ul").append("<%= escape_javascript(render :partial => @todo, :locals => { :todo => @todo }) %>");
 $(list + " .left-count").text("<%= pluralize @left_count, 'todo' %> left");
 $(list + " .left > ul li").last().effect("highlight", {}, 1500);
+bindTodo($(list + " .left > ul li").last());
