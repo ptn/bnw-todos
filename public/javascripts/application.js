@@ -1,18 +1,6 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(function() {
-  window.clearNewTodoForm = function(form) {
-    $(":input", form).each(function() {
-      if (this.type != "hidden" && this.type != "submit") {
-        $(this).val('');
-        if (this.type == "select-one") {
-          var def = $("[selected='selected']", $(this)).val();
-          $(this).val(def);
-        }
-      }
-    });
-  };
-
   var toggleSection = function(link, target, show_text, hide_text) {
     target.toggle();
     if (target.css("display") == "none")
@@ -29,27 +17,46 @@ $(function() {
       submit_btn.removeAttr("disabled");
   }
 
-  $(".list .toggle-done").click(function() {
-    toggleSection(this, $(this).next("ul"), "Show", "Hide");
-  });
+  window.clearNewTodoForm = function(form) {
+    $(":input", form).each(function() {
+      if (this.type != "hidden" && this.type != "submit") {
+        $(this).val('');
+        if (this.type == "select-one") {
+          var def = $("[selected='selected']", $(this)).val();
+          $(this).val(def);
+        }
+      }
+    });
+  };
 
-  $(".new-todo-form .field :text").keyup(function() {
-    toggleSubmitBtn(this);
-  });
+  window.bindList = function(list) {
+    $(".toggle-done", list).click(function() {
+      toggleSection(this, $(this).next("ul"), "Show", "Hide");
+    });
 
-  $(".list .toggle-add").click(function() {
-    var form_div = $(".new-todo-form", $(this).parents(".list"));
-    form_div.show();
-    $(".field :text", form_div).focus();
-    $(this).hide();
-  });
+    $(".toggle-add", list).click(function() {
+      var form_div = $(".new-todo-form", $(this).parents(".list"));
+      form_div.show();
+      $(".field :text", form_div).focus();
+      $(this).hide();
+    });
 
-  $(".list .cancel-add-todo").click(function() {
-    var form_div = $(this).parents(".new-todo-form");
-    form_div.hide();
-    clearNewTodoForm($(" > form", form_div));
-    $(".toggle-add", form_div.parents(".list")).show();
-  });
+    $(".cancel-add-todo", list).click(function() {
+      var form_div = $(this).parents(".new-todo-form");
+      form_div.hide();
+      clearNewTodoForm($(" > form", form_div));
+      $(".toggle-add", form_div.parents(".list")).show();
+    });
+
+    $(".new-todo-form .field :text", list).keyup(function() {
+      toggleSubmitBtn(this);
+    });
+  };
+
+  $(".list").each(function(list) { bindList(list); });
+
+  window.bindTodo = function(todo) {
+  };
 
   $(".start-edit-todo").click(function() {
     var edit_form = $(".edit-todo-form", $(this).parents(".todo"));
