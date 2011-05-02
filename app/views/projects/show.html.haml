@@ -12,9 +12,4 @@
 = content_for :sidebar do
   #create-list-btn
     Create a new list
-  #completed-lists
-    %b Completed lists
-    %br/
-    - @project.lists.done.each do |l|
-      = link_to l.title, [@project, l]
-      %br/
+  = render "lists/list_summary"

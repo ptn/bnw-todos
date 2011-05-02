@@ -20,6 +20,11 @@ body {
   margin-right: 0.3em;
 }
 
+.delete-link, .delete-link:visited {
+  color: red;
+}
+
+
 .quiet a {
   color: #666;
 }
@@ -111,8 +116,9 @@ body {
   margin-bottom: 1em;
 }
 
-#completed-lists {
+#list-summary {
   margin-top: 3em;
+  margin-bottom: 2em;
 }
 
 

@@ -1,0 +1,16 @@
+#list-summary
+  - if @showing_list
+    %h5.title-with-bk From the same project:
+  #active-lists
+    %b Active lists
+    %br/
+    - @project.lists.left.each do |l|
+      = link_to l.title, [@project, l]
+      %br/
+  %br/
+  #completed-lists
+    %b Completed lists
+    %br/
+    - @project.lists.done.each do |l|
+      = link_to l.title, [@project, l]
+      %br/
