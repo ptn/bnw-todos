@@ -13,4 +13,5 @@
 = content_for :sidebar do
   #create-list-btn
     Create a new list
-  = render "lists/list_summary"
+  -if @project.lists.count > 0
+    = render "lists/list_summary"
