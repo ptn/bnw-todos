@@ -2,11 +2,16 @@ class TodosController < ApplicationController
   def update
     #FIXME Check permissions
     @todo = Todo.find(params[:id])
-    [:done, :task, :assignee_id, :due_date].each do |attr|
+    [:done, :task, :due_date].each do |attr|
       unless params[:todo][attr].nil?
         @todo.send attr.to_s + "=", params[:todo][attr]
       end
     end
+    @todo.assignee = if params[:user_id] != ""
+                       find_or_create_participant(params[:project_id], params[:user_id])
+                     else
+                       nil
+                     end
 
     respond_to do |format|
       if @todo.save
@@ -49,6 +54,7 @@ class TodosController < ApplicationController
   def find_or_create_participant(project_id, user_id)
     participant = Participant.where(:project_id => project_id, :user_id => user_id).first
     if participant.nil?
+      # You can add someone to a project simply by assigning him a todo.
       participant = Participant.create(:project_id => project_id, :user_id => user_id)
     end
     participant

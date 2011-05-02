@@ -1,14 +1,19 @@
-$("#todo-<%= @todo.id %>").remove();
-var target = "#list-<%= @todo.list.id %> > <%= @todo.done? ? ".done" : ".left" %> > ul";
-var done_div = "#list-<%= @todo.list.id %> > .done";
-$(target).append("<%= escape_javascript(render @todo) %>");
-$(target + " li").last().effect("highlight", {}, 1500);
-<% if @todo.done? %>
+<% if @todo.previous_changes[:done] %>
+  $("#todo-<%= @todo.id %>").remove();
+  var target = "#list-<%= @todo.list.id %> > <%= @todo.done? ? ".done" : ".left" %> > ul";
+  var done_div = "#list-<%= @todo.list.id %> > .done";
+  $(target).append("<%= escape_javascript(render @todo) %>");
+  $(target + " li").last().effect("highlight", {}, 1500);
+  <% if @todo.done? %>
     $(done_div).show();
-<% else %>
+  <% else %>
     <% if @done_count == 0 %>
-        $(done_div).hide();
+      $(done_div).hide();
     <% end %>
+  <% end %>
+  $(done_div + " > .done-count").text("Done (<%= @done_count %>) :");
+  $("#list-<%= @todo.list.id %> > .list-utils > .left-count").text("<%= pluralize @left_count, 'todo' %> left");
+<% else %>
+  $("#todo-<%= @todo.id %>").replaceWith("<%= escape_javascript(render @todo) %>");
+  $("#todo-<%= @todo.id %>").effect("highlight", {}, 1500);
 <% end %>
-$(done_div + " > .done-count").text("Done (<%= @done_count %>) :");
-$("#list-<%= @todo.list.id %> > .list-utils > .left-count").text("<%= pluralize @left_count, 'todo' %> left");
