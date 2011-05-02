@@ -7,7 +7,7 @@ class TodosController < ApplicationController
         @todo.send attr.to_s + "=", params[:todo][attr]
       end
     end
-    @todo.assignee = if params[:user_id] != ""
+    @todo.assignee = if params[:user_id] && params[:user_id] != ""
                        find_or_create_participant(params[:project_id], params[:user_id])
                      else
                        nil
