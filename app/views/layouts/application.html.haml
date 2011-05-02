@@ -16,6 +16,9 @@
   %body{ :style => "background-color: #e6e6e6;" }
     #header
       = render "shared/header"
+    .container{ :style => "background-color: white;" }
+      #breadcrumbs.quiet.span-24.last
+        = yield :breadcrumbs
     .container
       #content.span-24.last
         #main.span-17.colborder

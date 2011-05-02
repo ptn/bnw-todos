@@ -1,6 +1,10 @@
+= content_for :breadcrumbs do
+  You are here:
+  = link_to "Home", projects_path
+  >
+  %b= @project.name
+
 #page-title
-  %span.quiet.small Todos for
-  %br/
   %span.page-title= @project.name
   %span.alt= @project.description
 
