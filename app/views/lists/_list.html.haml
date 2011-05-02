@@ -1,16 +1,16 @@
 .list{ :id => "list-#{list.id}" }
   = link_to list.title, [@project, list], :class => "list-title"
-  %span.list-utils.quiet.medium
-    %span.left-count= "#{pluralize list.todos.left.count, 'todo'} left"
-    \-
-    %a.toggle-add{ :href => "#"} Add a todo
-  .new-todo-form{ :style => "display: none;" }
-    = render :partial => "todos/new_form", :locals => { :list_id => list.id }
   .left
     %ul
       = render list.todos.left
+  .new-todo-form{ :style => "display: none;" }
+    = render :partial => "todos/new_form", :locals => { :list_id => list.id }
   .done.small.quiet{ :style => list.todos.done.count == 0 ? "display: none;" : "" }
     %span.done-count= "Done (#{list.todos.done.count}) :"
     %a.toggle-done{ :href => "#" } Show
     %ul{ :style => "display: none;" }
       = render list.todos.done
+  %span.list-utils.quiet.medium
+    %span.left-count= "#{pluralize list.todos.left.count, 'todo'} left"
+    \-
+    %a.toggle-add{ :href => "#"} Add a todo

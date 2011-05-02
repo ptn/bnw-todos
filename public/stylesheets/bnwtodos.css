@@ -51,7 +51,9 @@ body {
 }
 
 .list {
-  margin-bottom: 3.5em;
+  margin-bottom: 2em;
+  border-bottom: solid 1px #ddd;
+  padding: 0.5em;
 }
 
 .list .list-title {
@@ -86,13 +88,15 @@ body {
   padding-left: 0.8em;
 }
 
-.list-utils {
-  float: right;
-}
-
 #new-list-form {
   margin-top: 2em;
   display: none;
+}
+
+.left-count {
+  font-weight: bold;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
 }
 
 
@@ -131,6 +135,7 @@ body {
 
 .new-todo-form {
   margin-top: 1em;
+  margin-bottom: 1em;
   padding-left: 1.2em;
 }
 

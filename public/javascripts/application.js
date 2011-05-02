@@ -38,20 +38,17 @@ $(function() {
   });
 
   $(".list .toggle-add").click(function() {
-    // Refactor: this JS function knows too much about the DOM structure, should decouple.
-    var form_div = $(this).parent().next(".new-todo-form");
-    toggleSection(this, form_div, "Add a todo", "Cancel");
-    var task_field = $(".field :text", form_div);
-    task_field.focus();
-    clearNewTodoForm($("> form", form_div));
+    var form_div = $(".new-todo-form", $(this).parents(".list"));
+    form_div.show();
+    $(".field :text", form_div).focus();
+    $(this).hide();
   });
 
   $(".list .cancel-add-todo").click(function() {
     var form_div = $(this).parents(".new-todo-form");
     form_div.hide();
     clearNewTodoForm($(" > form", form_div));
-    // Refactor: this JS function knows too much about the DOM structure, should decouple.
-    form_div.prev(".list-utils").children(".toggle-add").text("Add a todo");
+    $(".toggle-add", form_div.parents(".list")).show();
   });
 
   $(".start-edit-todo").click(function() {
