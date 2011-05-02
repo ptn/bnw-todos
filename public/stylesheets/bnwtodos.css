@@ -12,6 +12,10 @@ body {
  * Utilities
  **************************************************/
 
+.clear {
+  clear: both;
+}
+
 .page-title {
   font-size: 3em;
   font-weight: bold;
@@ -169,6 +173,10 @@ body {
 .edit-todo-form {
   display: none;
   margin-left: 0.5em;
+}
+
+.new-todo-form .actions, .edit-todo-form .actions {
+  float: right;
 }
 
 .toggle-todo-form {

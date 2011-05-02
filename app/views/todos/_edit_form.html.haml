@@ -1,15 +1,18 @@
 = form_for [@project, todo], :remote => :true, :html => { :class => "edit-todo-form form" } do |f|
   %h3 Edit todo
-  = f.text_field :task
-  \-
-  - if todo.assignee
-    = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username, todo.user.id), :include_blank => "Anyone"
-  - else
-    = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
-  (
-  = f.date_select :due_date
-  )
-  %span.actions
-    = f.submit "Save"
-  or
-  %a.cancel-edit-todo{ :href => "#" } Cancel
+  %p
+    Our team has to
+    %span.task= f.text_field :task, :size => 60
+    \.
+    %span.assignee
+      - if todo.assignee
+        = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username, todo.user.id), :include_blank => "Anyone"
+      - else
+        = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
+    is responsible, and we should have it done by
+    %span.due-date= f.date_select :due_date
+    %span.actions
+      = f.submit "Save"
+      or
+      %a.cancel-edit-todo{ :href => "#" } Cancel
+    .clear

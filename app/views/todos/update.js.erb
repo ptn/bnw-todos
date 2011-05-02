@@ -3,6 +3,7 @@
   var target = "#list-<%= @todo.list.id %> > <%= @todo.done? ? ".done" : ".left" %> > ul";
   var done_div = "#list-<%= @todo.list.id %> > .done";
   $(target).append("<%= escape_javascript(render @todo) %>");
+  bindTodo($(target + " li").last());
   $(target + " li").last().effect("highlight", {}, 1500);
   <% if @todo.done? %>
     $(done_div).show();
@@ -15,5 +16,6 @@
   $("#list-<%= @todo.list.id %> > .list-utils > .left-count").text("<%= pluralize @left_count, 'todo' %> left");
 <% else %>
   $("#todo-<%= @todo.id %>").replaceWith("<%= escape_javascript(render @todo) %>");
+  bindTodo($("#todo-<%= @todo.id %>"));
   $("#todo-<%= @todo.id %>").effect("highlight", {}, 1500);
 <% end %>

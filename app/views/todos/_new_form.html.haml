@@ -1,19 +1,15 @@
 %h3 New todo
 = form_for [@project, @todo], :remote => :true do |f|
   = f.hidden_field :list_id, :value => list_id
-  .field
-    = f.label :task, "What needs to be done?"
-    %br/
-    = f.text_field :task
-  .field
-    = label_tag :user_id, "Who is responsible?"
-    %br/
-    = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
-  .field
-    = f.label :due_date, "When is it due?"
-    %br/
-    = f.date_select :due_date
+  %p
+    Our team has to
+    %span.task= f.text_field :task, :size => 60
+    \.
+    %span.assignee= select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
+    is responsible, and we should have it done by
+    %span.due-date= f.date_select :due_date
   %span.actions
     = f.submit "Add todo", :disabled => true
-  or
-  %a.cancel-add-todo{ :href => "#" } I'm done
+    or
+    %a.cancel-add-todo{ :href => "#" } I'm done
+  .clear

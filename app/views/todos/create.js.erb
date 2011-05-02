@@ -1,7 +1,7 @@
 var list = "#list-<%= @todo.list.id %>";
 var form = $(list + " .new-todo-form");
 clearNewTodoForm(form);
-$(".field :text", form).focus();
+$(".task :text", form).focus();
 $(list + " .new-todo-form > .field :text").focus();
 $(list + " .left > ul").append("<%= escape_javascript(render :partial => @todo, :locals => { :todo => @todo }) %>");
 $(list + " .left-count").text("<%= pluralize @left_count, 'todo' %> left");

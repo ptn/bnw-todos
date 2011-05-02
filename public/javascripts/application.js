@@ -27,6 +27,7 @@ $(function() {
         }
       }
     });
+    toggleSubmitBtn($(":input", form));
   };
 
 
@@ -38,7 +39,7 @@ $(function() {
     $(".toggle-add", list).click(function() {
       var form_div = $(".new-todo-form", $(this).parents(".list"));
       form_div.show();
-      $(".field :text", form_div).focus();
+      $(".task :text", form_div).focus();
       $(this).hide();
     });
 
@@ -49,7 +50,7 @@ $(function() {
       $(".toggle-add", form_div.parents(".list")).show();
     });
 
-    $(".new-todo-form .field :text", list).keyup(function() {
+    $(".new-todo-form .task :text", list).keyup(function() {
       toggleSubmitBtn(this);
     });
   };
@@ -74,16 +75,16 @@ $(function() {
       var todo = $(this).parents(".todo");
       toggle_form.hide();
       edit_form.show();
-      $(":text", edit_form).focus();
+      $(".task :text", edit_form).focus();
       todo.addClass("editing");
       $(" > .todo-controls-left", todo).hide();
       $(" > .todo-controls-done", todo).hide();
     });
 
     $(".cancel-edit-todo", todo).click(function() {
-      $(this).parent().hide();
-      var toggle_form = $(".toggle-todo-form", $(this).parents(".todo"));
+      $(this).parents(".edit-todo-form").hide();
       var todo = $(this).parents(".todo");
+      var toggle_form = $(".toggle-todo-form", todo);
       toggle_form.show();
       todo.removeClass("editing");
     });
