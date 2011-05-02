@@ -12,15 +12,16 @@ class TodosController < ApplicationController
                      else
                        nil
                      end
+    if @todo.save
+      @left_count = @todo.list.todos.left.count
+      @done_count = @todo.list.todos.done.count
+      @project = @todo.project
+      @potential_assignees = User.all
+      update_done_state_of_list @todo.list
+    end
 
     respond_to do |format|
-      if @todo.save
-        @left_count = @todo.list.todos.left.count
-        @done_count = @todo.list.todos.done.count
-        @project = @todo.project
-        @potential_assignees = User.all
-        format.js
-      end
+      format.js
     end
   end
 
@@ -32,6 +33,7 @@ class TodosController < ApplicationController
       if @todo.save
         @project = @todo.project
         @potential_assignees = User.all
+        update_done_state_of_list @todo.list, :state => false
         @left_count = @todo.list.todos.left.count
         format.js
       else
@@ -43,6 +45,7 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
+    update_done_state_of_list @todo.list
     @left_count = @todo.list.todos.left.count
     @done_count = @todo.list.todos.done.count
   end
@@ -58,5 +61,12 @@ class TodosController < ApplicationController
       participant = Participant.create(:project_id => project_id, :user_id => user_id)
     end
     participant
+  end
+
+  # Sets the :done attr of @todo.list.
+  def update_done_state_of_list(list, opts={})
+    state = opts[:state] || list.todos.left.count == 0
+    list.done = state
+    list.save
   end
 end
