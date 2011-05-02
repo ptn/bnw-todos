@@ -1,0 +1,9 @@
+#page-title
+  %span.page-title= @list.title
+  -if @list.done?
+    %span.alt (Completed)
+  .list-description.quiet
+    A list in project
+    = link_to @project.name, @project
+
+= render @list

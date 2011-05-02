@@ -1,4 +1,13 @@
 class ListsController < ApplicationController
+  def show
+    @list = List.find(params[:id])
+    #FIXME Check if the project exists
+    @project = Project.find(params[:project_id])
+    @todo = Todo.new
+    @potential_assignees = User.all
+    @showing_list = true
+  end
+
   def create
     @list = List.new(params[:list])
     #FIXME Check if the project exists

@@ -12,6 +12,14 @@ body {
  * Utilities
  **************************************************/
 
+.page-title {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1em;
+  margin-bottom: 0.3em;
+  margin-right: 0.3em;
+}
+
 .quiet a {
   color: #666;
 }
@@ -42,17 +50,21 @@ body {
   background-color: white;
 }
 
+#page-title {
+  margin-bottom: 3em;
+}
+
+.list-description {
+  margin-top: 1em;
+}
+
 /***************************************************
  * Lists
  ***************************************************/
 
-#lists {
-  margin-top: 3em;
-}
 
 .list {
   margin-bottom: 2em;
-  border-bottom: solid 1px #ddd;
   padding: 0.5em;
 }
 
@@ -175,18 +187,6 @@ body {
 
 .todo-controls-done {
   margin-left: -2em;
-}
-
-/***************************************************
- * Projects
- ***************************************************/
-
-.project-title {
-  font-size: 3em;
-  font-weight: bold;
-  line-height: 1em;
-  margin-bottom: 0.5em;
-  margin-right: 0.3em;
 }
 
 

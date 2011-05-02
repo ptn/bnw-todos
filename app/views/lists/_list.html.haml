@@ -1,5 +1,8 @@
 .list{ :id => "list-#{list.id}" }
-  = link_to list.title, [@project, list], :class => "list-title"
+  - unless @showing_list
+    = link_to list.title, [@project, list], :class => "list-title"
+  - else
+    %h3 Todos:
   .left
     %ul
       = render list.todos.left
