@@ -17,6 +17,7 @@ class ListsController < ApplicationController
         @project = @list.project
         @todo = Todo.new
         @potential_assignees = User.all
+        @is_new_list = true
         format.js
       else
         logger.debug "Errors: #{@list.errors}" ##############################

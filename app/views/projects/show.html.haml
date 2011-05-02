@@ -4,7 +4,8 @@
   %span.page-title= @project.name
   %span.alt= @project.description
 
-#new-list-form= render "lists/new_form"
+#new-list-form{ :style => @is_new_project ? "" : "display: none;" }
+  = render "lists/new_form"
 
 #lists
   = render @project.lists.left

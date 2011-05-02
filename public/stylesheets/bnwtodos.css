@@ -107,7 +107,7 @@ body {
 
 #new-list-form {
   margin-top: 2em;
-  display: none;
+  margin-bottom: 2em;
 }
 
 .left-count {
