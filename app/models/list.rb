@@ -3,7 +3,7 @@ class List < ActiveRecord::Base
   scope :left, where(:done => false)
 
   belongs_to :project
-  has_many :todos
+  has_many :todos, :dependent => :destroy
 
   validates_presence_of :title
 end
