@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_many :lists
+  has_many :lists, :dependent => :destroy
   has_many :participants
   has_many :users, :through => :participants
 
