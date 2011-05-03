@@ -2,7 +2,20 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.all
+    @projects = current_user.projects
+    @overdue = current_user.todos.overdue
+    @due_today = current_user.todos.due_today
+    # Maps how many todos assigned, overdue and due today the user has in every
+    # project.
+    @todo_count_map = {}
+    @projects.each do |p|
+      counts = {}
+      participant = Participant.where(:user_id => current_user.id, :project_id => p.id).first
+      counts[:assigned] = participant.todos.count
+      counts[:overdue] = participant.todos.overdue.count
+      counts[:due_today] = participant.todos.due_today.count
+      @todo_count_map[p.id] = counts
+    end
 
     respond_to do |format|
       format.html # index.html.erb

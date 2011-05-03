@@ -1,0 +1,9 @@
+%li.todo
+  = todo.task
+  %span.quiet
+    ( due
+    = todo.due_date
+    )
+    \-
+    from project
+    = link_to todo.project.name, todo.project

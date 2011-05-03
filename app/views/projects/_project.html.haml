@@ -1,0 +1,18 @@
+.project{ :id => "project-#{project.id}" }
+  = link_to project.name, project, :class => "title"
+  \-
+  %span.alt= project.description
+  .todos-summary
+    Your todos:
+    %ul
+      %li
+        = @todo_count_map[project.id][:assigned]
+        assigned
+      -if @todo_count_map[project.id][:overdue] > 0
+        %li
+          = @todo_count_map[project.id][:overdue]
+          %span.overdue OVERDUE
+      -if @todo_count_map[project.id][:due_today] > 0
+        %li
+          = @todo_count_map[project.id][:due_today]
+          %span.due-today DUE TODAY

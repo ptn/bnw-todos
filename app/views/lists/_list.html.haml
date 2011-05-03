@@ -1,6 +1,6 @@
 .list{ :id => "list-#{list.id}" }
   - unless @showing_list
-    = link_to list.title, [@project, list], :class => "list-title"
+    = link_to list.title, [@project, list], :class => "title"
   - else
     %h3 Todos:
   .left
