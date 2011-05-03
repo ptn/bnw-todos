@@ -2,11 +2,7 @@ class TodosController < ApplicationController
   def update
     #FIXME Check permissions
     @todo = Todo.find(params[:id])
-    [:done, :task, :due_date].each do |attr|
-      unless params[:todo][attr].nil?
-        @todo.send attr.to_s + "=", params[:todo][attr]
-      end
-    end
+    @todo.update_attributes params[:todo]
     @todo.assignee = if params[:user_id] && params[:user_id] != ""
                        find_or_create_participant(params[:project_id], params[:user_id])
                      else

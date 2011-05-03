@@ -7,7 +7,7 @@
     \.
     %span.assignee= select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
     is responsible, and we should have it done by
-    %span.due-date= f.text_field :due_date
+    %span.due-date= f.date_select :due_date
   %span.actions
     = f.submit "Add todo", :disabled => true
     or

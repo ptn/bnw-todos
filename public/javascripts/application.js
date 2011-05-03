@@ -54,7 +54,7 @@ $(function() {
       toggleSubmitBtn(this);
     });
 
-    $(".due-date :text", list).datepicker();
+    //$(".due-date :text", list).datepicker();
   };
 
   $(".list").each(function(idx, list) { bindList($(list)); });
@@ -91,7 +91,7 @@ $(function() {
       todo.removeClass("editing");
     });
 
-    $(".due-date :text", todo).datepicker();
+    //$(".due-date :text", todo).datepicker();
   };
 
   $(".todo").each(function(idx, todo) { bindTodo($(todo)); });
