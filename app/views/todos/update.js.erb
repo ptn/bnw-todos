@@ -1,4 +1,4 @@
-<% if @todo.previous_changes[:done] %>
+<% if @edit_done %>
   $("#todo-<%= @todo.id %>").remove();
   var target = "#list-<%= @todo.list.id %> > <%= @todo.done? ? ".done" : ".left" %> > ul";
   var done_div = "#list-<%= @todo.list.id %> > .done";

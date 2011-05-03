@@ -8,6 +8,7 @@ class TodosController < ApplicationController
                      else
                        nil
                      end
+    @edit_done = params[:todo][:done]
     if @todo.save
       @left_count = @todo.list.todos.left.count
       @done_count = @todo.list.todos.done.count
