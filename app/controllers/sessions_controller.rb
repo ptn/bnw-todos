@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
   skip_before_filter :require_login, :only => [:new, :create]
+  layout "login"
 
   def new
     unless session[:current_user_id].nil?
       flash[:warn] = "You are already logged in"
       redirect_to :back
     end
+    @hide_admin_links = true
   end
 
   def create
