@@ -20,7 +20,7 @@
             %span.mine= todo.assignee.username
           - else
             = todo.assignee.username
-        = "(#{todo.due_date})"
+        = "( due #{todo.due_date} )"
         - if todo.overdue?
           %span.overdue OVERDUE
         - elsif todo.due_today?
