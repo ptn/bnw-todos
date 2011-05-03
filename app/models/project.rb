@@ -4,6 +4,11 @@ class Project < ActiveRecord::Base
   has_many :users, :through => :participants
 
   validates_presence_of :name
+
+  def todos
+    ids = self.lists.map(&:id).join(", ")
+    Todo.where "list_id IN (#{ids})"
+  end
 end
 
 # == Schema Information
