@@ -19,3 +19,7 @@
     New list
   -if @project.lists.count > 0
     = render "lists/list_summary"
+
+-unless @has_lists
+  :javascript
+    $("#new-list-form :text").focus();

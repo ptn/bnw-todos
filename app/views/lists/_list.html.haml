@@ -17,3 +17,6 @@
     %span.left-count= "#{pluralize list.todos.left.count, 'todo'} left"
     \-
     %a.toggle-add{ :href => "#"} Add a todo
+-if @is_new_list
+  :javascript
+    $("#list-#{list.id} .new-todo-form .task :text").focus();
