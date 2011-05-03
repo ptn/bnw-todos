@@ -88,7 +88,23 @@ body {
 }
 
 #header {
-  background-color: white;
+  background-color: #104f80;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #e6e6e6;
+}
+
+#admin-links {
+  float: right;
+}
+
+#admin-links a, #admin-links a {
+  color: #e6e6e6;
+}
+
+#header h3 {
+  color: #e6e6e6;
+  margin-bottom: 0;
 }
 
 #footer {
@@ -243,7 +259,8 @@ body {
   padding: 0.3em;
   text-align: center;
   width: 50%;
-  background-color: cyan;
+  background-color: #a4c6e0;
+  font-weight: bold;
 }
 
 /***************************************************

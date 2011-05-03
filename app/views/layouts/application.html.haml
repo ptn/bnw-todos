@@ -15,7 +15,8 @@
     = csrf_meta_tag
   %body{ :style => "background-color: #e6e6e6;" }
     #header
-      = render "shared/header"
+      .container
+        = render "shared/header"
     .container{ :style => "background-color: white;" }
       #breadcrumbs.quiet.span-24.last
         = yield :breadcrumbs
