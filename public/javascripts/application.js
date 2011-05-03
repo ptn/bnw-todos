@@ -113,4 +113,16 @@ $(function() {
   $("#new-list-form :text").keyup(function() {
     toggleSubmitBtn(this);
   });
+
+
+  // Todo notifications
+  $(".minimize").click(function() {
+    $(this).parent().slideUp();
+    $(this).parent().siblings(".small-notice").show();
+  });
+
+  $(".maximize").click(function() {
+    $(this).parent().hide();
+    $(this).parent().siblings(".big-notice").slideDown();
+  });
 });

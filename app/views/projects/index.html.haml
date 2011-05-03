@@ -6,25 +6,41 @@
 
 #todo-notifications
   -if @overdue.count > 0
-    #overdue-notifications{ :onclick => "$(this).slideUp();" }
-      %h3
+    #overdue-notifications
+      .small-notice
+        .maximize [ + ]
         You have
         %b
-          = pluralize @overdue.count, 'todo'
+          =pluralize @overdue.count, 'todo'
           overdue
-          \:
-      %ul
-        = render :partial => "todos/overview", :collection => @overdue, :as => :todo
+      .big-notice
+        .minimize [ - ]
+        %h3
+          You have
+          %b
+            = pluralize @overdue.count, 'todo'
+            overdue
+            \:
+        %ul
+          = render :partial => "todos/overview", :collection => @overdue, :as => :todo
   -if @due_today.count > 0
-    #due-today-notifications{ :onclick => "$(this).slideUp();" }
-      %h3
+    #due-today-notifications
+      .small-notice
+        .maximize [ + ]
         You have
         %b
-          = pluralize @due_today.count, 'todo'
+          =pluralize @due_today.count, 'todo'
           due today
-          \:
-      %ul
-        = render :partial => "todos/overview", :collection => @due_today, :as => :todo
+      .big-notice
+        .minimize [ - ]
+        %h3
+          You have
+          %b
+            = pluralize @due_today.count, 'todo'
+            due today
+            \:
+        %ul
+          = render :partial => "todos/overview", :collection => @due_today, :as => :todo
 
 
 #projects

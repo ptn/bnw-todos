@@ -276,18 +276,49 @@ body {
   margin-bottom: 0;
 }
 
-#overdue-notifications, #due-today-notifications {
-  padding: 1em;
+#overdue-notifications .big-notice, #due-today-notifications .bit-notice {
   border: solid 2px;
 }
 
-#overdue-notifications {
+#overdue-notifications .big-notice,
+#due-today-notifications .big-notice {
+  padding: 1em;
+}
+
+#overdue-notifications .small-notice,
+#due-today-notifications .small-notice {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+#overdue-notifications .big-notice {
   border-color: #ffcc96;
   background-color: #ffe3c5;
+}
+
+#overdue-notifications {
   margin-bottom: 1em;
 }
 
-#due-today-notifications {
+#due-today-notifications .big-notice {
   border-color: #fff273;
   background-color: #fffbd5;
+}
+
+.minimize, .maximize {
+  font-weight: bold;
+  float: right;
+  cursor: pointer;
+}
+
+#overdue-notifications .maximize {
+  background-color: #ffe3c5;
+}
+
+#due-today-notifications .maximize {
+  background-color: #fffbd5;
+}
+
+.small-notice {
+  display: none;
 }
