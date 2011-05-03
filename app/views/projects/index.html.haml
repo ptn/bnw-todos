@@ -7,20 +7,22 @@
 #todo-notifications
   -if @overdue.count > 0
     #overdue-notifications
-      You have
-      %b
-        = pluralize @overdue.count, 'todo'
-        overdue
-        \:
+      %h3
+        You have
+        %b
+          = pluralize @overdue.count, 'todo'
+          overdue
+          \:
       %ul
         = render :partial => "todos/overview", :collection => @overdue, :as => :todo
   -if @due_today.count > 0
     #due-today-notifications
-      You have
-      %b
-        = pluralize @due_today.count, 'todo'
-        due today
-        \:
+      %h3
+        You have
+        %b
+          = pluralize @due_today.count, 'todo'
+          due today
+          \:
       %ul
         = render :partial => "todos/overview", :collection => @overdue, :as => :todo
 

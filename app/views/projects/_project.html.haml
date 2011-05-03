@@ -3,11 +3,11 @@
   \-
   %span.alt= project.description
   .todos-summary
-    Your todos:
+    You have
+    %b
+      = pluralize @todo_count_map[project.id][:assigned], 'todo'
+      assigned
     %ul
-      %li
-        = @todo_count_map[project.id][:assigned]
-        assigned
       -if @todo_count_map[project.id][:overdue] > 0
         %li
           = @todo_count_map[project.id][:overdue]
