@@ -6,7 +6,7 @@
 
 #todo-notifications
   -if @overdue.count > 0
-    #overdue-notifications
+    #overdue-notifications{ :onclick => "$(this).slideUp();" }
       %h3
         You have
         %b
@@ -16,7 +16,7 @@
       %ul
         = render :partial => "todos/overview", :collection => @overdue, :as => :todo
   -if @due_today.count > 0
-    #due-today-notifications
+    #due-today-notifications{ :onclick => "$(this).slideUp();" }
       %h3
         You have
         %b
