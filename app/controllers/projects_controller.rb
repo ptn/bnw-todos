@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
     @overdue = current_user.todos.overdue
     @due_today = current_user.todos.due_today
     @count_map, @state_map = build_maps
+    @project = Project.new
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,27 +21,12 @@ class ProjectsController < ApplicationController
     @todo = Todo.new
     @list = List.new
     @potential_assignees = User.all
+    @has_lists = @project.lists.count > 0
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @project }
     end
-  end
-
-  # GET /projects/new
-  # GET /projects/new.xml
-  def new
-    @project = Project.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @project }
-    end
-  end
-
-  # GET /projects/1/edit
-  def edit
-    @project = Project.find(params[:id])
   end
 
   # POST /projects
@@ -50,7 +36,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        @is_new_project = true
+        participant = Participant.create :project_id => @project.id, :user_id => current_user.id
         format.html { redirect_to(@project, :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else

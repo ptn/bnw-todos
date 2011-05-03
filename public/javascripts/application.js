@@ -115,6 +115,24 @@ $(function() {
   });
 
 
+  // New project form.
+  $("#create-project-btn").click(function() {
+    $("#new-project-form").show();
+    $("#new-project-form :text").focus();
+    $(this).hide();
+  });
+
+  $(".cancel-create-project").click(function() {
+    $("#new-project-form :text").val('');
+    $("#new-project-form").hide();
+    $("#create-project-btn").show();
+  });
+
+  $("#new-project-form :text").keyup(function() {
+    toggleSubmitBtn(this);
+  });
+
+
   // Todo notifications
   $(".minimize").click(function() {
     $(this).parent().slideUp();

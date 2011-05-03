@@ -1,0 +1,11 @@
+%h3 New project
+= form_for @project do |f|
+  .field
+    = f.label :name, "What's the name of the new project?"
+    %br/
+    = f.text_field :name
+  %span.actions
+    = f.submit "Create project", :disabled => true
+  or
+  %a.cancel-create-project{ :href => "#" } Cancel
+

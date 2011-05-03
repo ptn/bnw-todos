@@ -199,6 +199,10 @@ body {
   margin-bottom: 0;
 }
 
+#new-project-form {
+  margin-bottom: 2em;
+}
+
 
 /***************************************************
  * Todo forms
