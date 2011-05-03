@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   def todos
     ids = self.participants.map(&:id).join(", ")
-    Todo.where "id IN (#{ids})"
+    Todo.where "assignee_id IN (#{ids})"
   end
 
   def password
