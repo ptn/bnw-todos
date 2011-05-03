@@ -1,7 +1,7 @@
 = form_for [@project, todo], :remote => :true, :html => { :class => "edit-todo-form form" } do |f|
   %h3 Edit todo
   %p
-    Our team has to
+    Our team's task is to
     %span.task= f.text_field :task, :size => 60
     \.
     %span.assignee

@@ -2,7 +2,7 @@
 = form_for [@project, @todo], :remote => :true do |f|
   = f.hidden_field :list_id, :value => list_id
   %p
-    Our team has to
+    Our team's task is to
     %span.task= f.text_field :task, :size => 60
     \.
     %span.assignee= select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
