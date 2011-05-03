@@ -5,14 +5,14 @@
   .todos-summary
     You have
     %b
-      = pluralize @todo_count_map[project.id][:assigned], 'todo'
+      =pluralize @count_map[project.id][:assigned], 'todo'
       assigned
     %ul
-      -if @todo_count_map[project.id][:overdue] > 0
+      -if @count_map[project.id][:overdue] > 0
         %li
-          = @todo_count_map[project.id][:overdue]
-          %span.overdue OVERDUE
-      -if @todo_count_map[project.id][:due_today] > 0
+          = pluralize @count_map[project.id][:overdue], 'todo'
+          overdue
+      -if @count_map[project.id][:due_today] > 0
         %li
-          = @todo_count_map[project.id][:due_today]
-          %span.due-today DUE TODAY
+          = pluralize @count_map[project.id][:due_today], 'todo'
+          due today
