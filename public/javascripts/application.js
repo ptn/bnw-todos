@@ -17,9 +17,9 @@ $(function() {
     var offsetTop = el.offset().top;
     if (offsetTop > winHeight) {
       var y = offsetTop - (winHeight - el.attr("offsetHeight")) / 2;
-      $("html,body").animate({
-        scrollTop: y
-      }, 'slow');
+      $("body").animate({
+        scrollTop: "+=" + y + "px"
+      }, "fast");
     }
   };
 
@@ -62,6 +62,7 @@ $(function() {
     $(".toggle-add", list).click(function() {
       var form_div = $(".new-todo-form", $(this).parents(".list"));
       form_div.show();
+      scrollElemToCenter(form_div);
       $(".task :text", form_div).focus();
       $(this).hide();
     });
@@ -100,6 +101,7 @@ $(function() {
       var todo = $(this).parents(".todo");
       toggle_form.hide();
       edit_form.show();
+      scrollElemToCenter(edit_form);
       $(".task :text", edit_form).focus();
       todo.addClass("editing");
       $(" > .todo-controls-left", todo).hide();
