@@ -23,3 +23,9 @@
 -unless @has_lists
   :javascript
     $("#new-list-form :text").focus();
+-if @highlight_todo_id
+  :javascript
+    $(function() {
+      scrollElemToCenter($('#todo-#{@highlight_todo_id}'));
+      $("#todo-#{@highlight_todo_id}").effect("highlight", {}, 2500);
+    });

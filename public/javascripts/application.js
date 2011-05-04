@@ -1,6 +1,29 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(function() {
+
+  // Scrolling.
+  window.getWindowHeight = function() {
+    var body  = document.body;
+    var docEl = document.documentElement;
+    return window.innerHeight ||
+      (docEl && docEl.clientHeight) ||
+        (body  && body.clientHeight)  ||
+          0;
+  };
+
+  window.scrollElemToCenter = function(el) {
+    var winHeight = getWindowHeight();
+    var offsetTop = el.offset().top;
+    if (offsetTop > winHeight) {
+      var y = offsetTop - (winHeight - el.attr("offsetHeight")) / 2;
+      $("html,body").animate({
+        scrollTop: y
+      }, 'slow');
+    }
+  };
+
+
   var toggleSection = function(link, target, show_text, hide_text) {
     target.toggle();
     if (target.css("display") == "none")

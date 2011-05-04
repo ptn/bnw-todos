@@ -22,6 +22,10 @@ class ProjectsController < ApplicationController
     @list = List.new
     @potential_assignees = User.all
     @has_lists = @project.lists.count > 0
+     if params[:hl]
+       tmp = Todo.find(params[:hl])
+       @highlight_todo_id = tmp.id if tmp
+     end
 
     respond_to do |format|
       format.html # show.html.erb
