@@ -24,4 +24,12 @@ class ListsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    respond_to do |format|
+      format.html { redirect_to(@list.project) }
+    end
+  end
 end
