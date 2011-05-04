@@ -168,4 +168,17 @@ $(function() {
     $(this).parent().hide();
     $(this).parent().siblings(".big-notice").slideDown();
   });
+
+
+  $("#show-mine-link").click(function() {
+    $(".todo").not(":has('.mine')").slideUp();
+    $("#show-all-link").show();
+    $(this).hide();
+  });
+
+  $("#show-all-link").click(function() {
+    $(".todo").not(":has('.mine'").slideDown();
+    $("#show-mine-link").show();
+    $(this).hide();
+  });
 });
