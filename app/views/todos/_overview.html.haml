@@ -1,9 +1,10 @@
 %li.todo
-  = todo.task
-  %span.quiet
-    ( due
-    = todo.due_date
-    )
-    \-
-    from project
-    = link_to todo.project.name, project_path(todo.project, :hl => todo.id)
+  =link_to todo.task, project_path(todo.project, :hl => todo.id)
+  \-
+  - if todo.overdue?
+    due
+    %b
+      = distance_of_time_in_words(todo.due_date, Date.today)
+      ago
+  from project
+  = todo.project.name

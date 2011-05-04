@@ -284,6 +284,7 @@ body {
 #todo-notifications ul {
   margin-top: 1em;
   margin-bottom: 0;
+  line-height: 2.5em;
 }
 
 #overdue-notifications .big-notice, #due-today-notifications .bit-notice {
