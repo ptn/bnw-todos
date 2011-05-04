@@ -8,7 +8,7 @@
       = render list.todos.left
   .form.new-todo-form{ :style => @is_new_list ? "" : "display: none;" }
     = render :partial => "todos/new_form", :locals => { :list_id => list.id }
-  .done.small.quiet{ :style => list.todos.done.count == 0 ? "display: none;" : "" }
+  .done.quiet{ :style => list.todos.done.count == 0 ? "display: none;" : "" }
     %span.done-count= "Done (#{list.todos.done.count}) :"
     %a.toggle-done{ :href => "#" } Show
     %ul{ :style => "display: none;" }

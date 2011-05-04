@@ -4,7 +4,9 @@
       = link_to image_tag("delete.png"), [@project, todo], :method => :delete, :remote => :true, :confirm => "Are you sure you want to delete this todo?"
     = form_for [@project, todo], :remote => true, :html => { :style => "display: inline;" } do |f|
       = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
-      = "#{todo.task} - #{todo.assignee.username if todo.user}"
+      = todo.task
+      -if todo.user
+        = todo.assignee.username
   - else
     %span.todo-controls-left
       = link_to image_tag("delete.png"), [@project, todo], :method => :delete, :remote => :true, :confirm => "Are you sure you want to delete this todo?"
@@ -14,13 +16,19 @@
       = f.check_box :done, :onclick => "$(this.form).trigger('submit.rails')"
       = todo.task
       %span.quiet
-        \-
         -if todo.user
+          \-
           - if todo.user == @current_user
             %span.mine= todo.assignee.username
           - else
             = todo.assignee.username
-        = "( due #{todo.due_date} )"
+        -unless todo.due_today?
+          due
+          -unless todo.overdue?
+            in
+          = distance_of_time_in_words todo.due_date, Date.today
+          -if todo.overdue?
+            ago
         - if todo.overdue?
           %span.overdue OVERDUE
         - elsif todo.due_today?

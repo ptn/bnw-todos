@@ -163,6 +163,7 @@ body {
 
 .list .done {
   padding-left: 0.8em;
+  margin-bottom: 2em;
 }
 
 #new-list-form {
