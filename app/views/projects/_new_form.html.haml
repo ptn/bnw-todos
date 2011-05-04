@@ -3,7 +3,11 @@
   .field
     = f.label :name, "What's the name of the new project?"
     %br/
-    = f.text_field :name
+    = f.text_field :name, :size => 70
+  .field
+    = f.label :description, "Describe it in a few words:"
+    %br/
+    = f.text_field :description, :size => 70
   %span.actions
     = f.submit "Create project", :disabled => true
   or

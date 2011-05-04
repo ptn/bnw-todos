@@ -143,7 +143,7 @@ $(function() {
   // New project form.
   $("#create-project-btn").click(function() {
     $("#new-project-form").show();
-    $("#new-project-form :text").focus();
+    $("#new-project-form :text").first().focus();
     $(this).hide();
   });
 
