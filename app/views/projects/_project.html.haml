@@ -7,6 +7,8 @@
     %b
       =pluralize @count_map[project.id][:assigned], 'todo'
       assigned
+      -if @count_map[project.id][:overdue] > 0 || @count_map[project.id][:overdue] > 0
+        \:
     %ul
       -if @count_map[project.id][:overdue] > 0
         %li
