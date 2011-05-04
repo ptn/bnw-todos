@@ -2,7 +2,7 @@
   %h3 Edit todo
   %p
     Our team's task is to
-    %span.task= f.text_field :task, :size => 60
+    %span.task= f.text_field :task, :size => 55
     \.
     %span.assignee
       - if todo.assignee
@@ -11,8 +11,8 @@
         = select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
     is responsible, and we should have it done by
     %span.due-date= f.date_select :due_date
-    %span.actions
-      = f.submit "Save"
-      or
-      %a.cancel-edit-todo{ :href => "#" } Cancel
-    .clear
+  %span.actions
+    = f.submit "Save"
+    or
+    %a.cancel-edit-todo{ :href => "#" } Cancel
+  .clear

@@ -3,7 +3,7 @@
   = f.hidden_field :list_id, :value => list_id
   %p
     Our team's task is to
-    %span.task= f.text_field :task, :size => 60
+    %span.task= f.text_field :task, :size => 55
     \.
     %span.assignee= select_tag :user_id, options_from_collection_for_select(@potential_assignees, :id, :username), :include_blank => "Anyone"
     is responsible, and we should have it done by
