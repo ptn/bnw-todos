@@ -29,6 +29,9 @@
           = distance_of_time_in_words todo.due_date, Date.today
           -if todo.overdue?
             ago
+        (
+        = todo.due_date
+        )
         - if todo.overdue?
           %span.overdue OVERDUE
         - elsif todo.due_today?
