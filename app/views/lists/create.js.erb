@@ -3,3 +3,4 @@ $("#lists").prepend("<%= escape_javascript(render @list) %>");
 $("#create-list-btn").show();
 $("#list-<%= @list.id %>").effect("highlight", {}, 1500);
 bindList($("#list-<%= @list.id %>"));
+$("#new-list-form :text").val('');
