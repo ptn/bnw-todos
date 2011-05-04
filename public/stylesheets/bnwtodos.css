@@ -271,7 +271,7 @@ body {
 
 
 /***************************************************
- * Buttons
+ * Buttons and links
  ***************************************************/
 
 #create-list-btn, #create-project-btn {
@@ -282,6 +282,21 @@ body {
   width: 50%;
   background-color: #a4c6e0;
   font-weight: bold;
+}
+
+#show-all-link {
+  font-weight: bold;
+  display: none;
+}
+
+#show-all-link a {
+  background-color: #104f80;
+  padding: 0.5em;
+  color: #e6e6e6;
+}
+
+#show-all-link, #show-mine-link {
+  margin-top: 2em;
 }
 
 /***************************************************
