@@ -153,7 +153,7 @@ $(function() {
     $("#create-project-btn").show();
   });
 
-  $("#new-project-form :text").keyup(function() {
+  $("#new-project-form .name :text").keyup(function() {
     toggleSubmitBtn(this);
   });
 

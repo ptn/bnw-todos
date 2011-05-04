@@ -1,10 +1,10 @@
 %h3 New project
 = form_for @project do |f|
-  .field
+  .field.name
     = f.label :name, "What's the name of the new project?"
     %br/
     = f.text_field :name, :size => 70
-  .field
+  .field.description
     = f.label :description, "Describe it in a few words:"
     %br/
     = f.text_field :description, :size => 70
