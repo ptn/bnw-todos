@@ -18,11 +18,11 @@
       .container
         = render "shared/header"
     .container{ :style => "background-color: white;" }
-      #breadcrumbs.quiet.span-24.last
+      #breadcrumbs.quiet.span-18.last
         = yield :breadcrumbs
     .container
-      #content.span-24.last
+      #content.span-23.last
         #main.span-17.colborder
           = yield
-        #sidebar.span-6.last
+        #sidebar.span-5.last
           = yield :sidebar

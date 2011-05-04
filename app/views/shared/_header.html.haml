@@ -1,7 +1,11 @@
--unless @hide_admin_links
+-unless @rendering_login
   #admin-links
     Hello,
     = @current_user.username
     |
     = link_to "Logout", :controller => :sessions, :action => :destroy
-%h3 BnW Todos - demo
+%h3 
+  -if @rendering_login
+    BnW Todos - demo
+  -else
+    %span#app-title= link_to "BnW Todos - demo", projects_path

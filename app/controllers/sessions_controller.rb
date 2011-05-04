@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       flash[:warn] = "You are already logged in"
       redirect_to request['HTTP_REFERER'].nil? ? projects_path : :back
     end
-    @hide_admin_links = true
+    @rendering_login = true
   end
 
   def create

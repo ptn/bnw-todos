@@ -6,6 +6,8 @@
   >
   %b= @list.title
 
+.quiet#back-link= link_to "Back", @project
+
 #page-title
   %span.page-title= @list.title
   -if @list.done?
