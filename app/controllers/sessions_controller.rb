@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def new
     unless session[:current_user_id].nil?
       flash[:warn] = "You are already logged in"
-      redirect_to :back
+      redirect_to request['HTTP_REFERER'].nil? ? projects_path : :back
     end
     @hide_admin_links = true
   end
