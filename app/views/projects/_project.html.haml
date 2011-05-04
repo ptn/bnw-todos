@@ -1,7 +1,7 @@
 .project{ :id => "project-#{project.id}" }
   = link_to project.name, project, :class => "title"
-  \-
-  %span.alt= project.description
+  %br/
+  .alt{ :style => "margin-top: 0.5em;" }= project.description
   .todos-summary
     You have
     %b
